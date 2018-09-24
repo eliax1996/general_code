@@ -2,8 +2,10 @@ from bs4 import BeautifulSoup
 import sqlite3
 import requests
 
+# a.... .a...
+
 def define_request(url):
-	page = requests.get(url,auth=('d3ll4', '6nWvKtiw'),verify=False)
+	page = requests.get(url,auth=('ad3ll4', '6anWvKtiw'),verify=False)
 
 	return page
 
