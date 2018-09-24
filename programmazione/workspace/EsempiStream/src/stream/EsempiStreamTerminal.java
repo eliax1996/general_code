@@ -1,0 +1,245 @@
+package stream;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import static java.util.Comparator.*;
+import static java.util.stream.Collectors.*;
+
+public class EsempiStreamTerminal {
+
+	public static void main(String[] args) {
+		
+		String[] parole = Quotations.ALL_ALONG_THE_WATCHTOWER.split("[ \n.,'\"-]+");
+
+		int max = Arrays.stream(parole).
+			map(String::length).
+			reduce(0,Math::max)
+		;
+		
+		System.out.println("max= " + max);
+		
+		System.out.println("\n\n------ Con IntStream\n");
+		
+		max = Arrays.stream(parole).
+				mapToInt(String::length).
+				reduce(0,Math::max)
+			;
+			
+			System.out.println("max= " + max);
+			
+			
+		Map<Integer,List<String>> raggruppamento;
+		
+		
+		
+		System.out.println("\n\n------ Collect\n");
+		class AccMax {
+			int max;
+		}
+		max = Arrays.stream(parole).
+				map(String::length).
+				collect(new Collector<Integer,AccMax,Integer>(){
+					public Supplier<AccMax> supplier(){
+						return () -> new AccMax();
+					}
+					public BiConsumer<AccMax,Integer> accumulator(){
+						return (acc,l) -> {
+							if(acc.max < l){
+								acc.max = l;
+							}
+						};
+					}
+					public BinaryOperator<AccMax> combiner(){
+						return (AccMax a1, AccMax a2) -> {
+							if(a1.max < a2.max){ 
+								a1.max = a2.max;
+							}
+							return a1;
+						};
+					}
+					public Function<AccMax,Integer> finisher(){
+						return (AccMax acc) -> acc.max;
+					}
+					
+					@Override
+					public Set<Collector.Characteristics> characteristics() {
+						HashSet<Collector.Characteristics> s=new HashSet<>();
+						s.add(Collector.Characteristics.UNORDERED);
+						s.add(Collector.Characteristics.CONCURRENT);
+						return s;
+					}
+				});
+		
+		System.out.println("max= " + max);
+
+		
+		System.out.println("\n\n------ Collect: Collector.of\n");
+
+		
+		max = Arrays.stream(parole).
+				map(String::length).
+				collect(Collector.of(
+						() -> new AccMax(), // supplier
+						
+						(acc,l) -> {			// accumulator
+							if(acc.max < l){
+								acc.max = l;
+							}}, 
+						
+						(AccMax a1, AccMax a2) -> { // combiner
+							if(a1.max < a2.max){ 
+								a1.max = a2.max;
+							}
+							return a1;
+						},
+						
+						(AccMax acc) -> acc.max // finisher
+						
+					));
+		
+		System.out.println("max= " + max);
+
+		
+		System.out.println("\n\n------ collect in lista\n");
+
+		/*
+		 * Raccogliere in una lista tutte le parole (distinte)
+		 * che abbiano lunghezza > 3
+		 */
+		List<String> paroleNonCorte = 
+				Arrays.stream(parole).
+				filter( w -> w.length() > 3).
+				distinct().
+				collect(
+					Collector.of(
+							ArrayList<String>::new , // () -> new ArrayList();
+							(a,w) -> a.add(w), // List::add
+							(a1,a2) -> { a1.addAll(a2); return a1; },
+							//(a) -> a
+							Collector.Characteristics.IDENTITY_FINISH
+					)
+				);
+		System.out.println(paroleNonCorte);
+				
+		Collector <String,List<String>,List<String>> aggiungiAllaLista =
+				Collector.of(
+						ArrayList<String>::new , // () -> new ArrayList();
+						(a,w) -> a.add(w), // List::add
+						(a1,a2) -> { a1.addAll(a2); return a1; },
+						//(a) -> a
+						Collector.Characteristics.IDENTITY_FINISH
+				);
+				
+		paroleNonCorte = 
+				Arrays.stream(parole).
+				filter( w -> w.length() > 3).
+				distinct().
+				collect(
+						Collectors.toList()
+						//aggiungiAllaLista
+				);
+
+		//aggiungiAllaLista = Collectors.toList();
+		
+		System.out.println("\n\n------ collect in lista\n");
+
+		List<String> treParolePiuLunghe = 
+				Arrays.stream(parole).
+				sorted(comparing(String::length).reversed()).
+				limit(3).
+				collect(toList());
+		System.out.println(treParolePiuLunghe);
+
+		String treParolePiuLungheStr = 
+				Arrays.stream(parole).
+				sorted(comparing(String::length).reversed()).
+				limit(3).
+				collect(joining(","));
+		System.out.println(treParolePiuLungheStr);
+		
+		System.out.println("\n\n------ groupingBy\n");
+		
+		int x = 0;
+
+		Map<Integer,List<String>> parolePerLunghezza =
+				Arrays.stream(parole).
+				filter(w -> w.length()>x).
+				collect(groupingBy(String::length))
+		;
+		System.out.println(parolePerLunghezza);
+
+
+		
+		System.out.println("\n\n------ groupingBy\n");
+
+		SortedMap<Integer,List<String>> parolePerLunghezzaInversa =
+				Arrays.stream(parole).
+				filter(w -> w.length()>0).
+				collect(groupingBy(String::length,
+						() -> new TreeMap<Integer,List<String>>(reverseOrder()),
+						toList()
+						))
+		;
+		System.out.println(parolePerLunghezzaInversa);
+		
+		int maxLen = parolePerLunghezzaInversa.firstKey();
+		System.out.println(parolePerLunghezzaInversa.get(maxLen));
+
+		
+		System.out.println("\n\n------ groupingBy + selezione\n");
+		
+		String primeParolePerLunghezza = 
+		parolePerLunghezzaInversa.entrySet().stream()
+		.limit(3)
+		.flatMap( e -> e.getValue().stream() )
+		.collect(joining(", "));
+		
+		System.out.println(primeParolePerLunghezza);
+		
+		
+		 primeParolePerLunghezza = 
+					parolePerLunghezzaInversa.keySet().stream()
+					.limit(3)
+					.flatMap( k -> parolePerLunghezzaInversa.get(k).stream() )
+					.collect(joining(", "));
+		 
+		 
+			System.out.println("\n\n------ groupingBy + collectingAndThen\n");
+
+		 primeParolePerLunghezza = 
+				 Arrays.stream(parole).
+					filter(w -> w.length()>0).
+					collect(
+					  collectingAndThen(
+						groupingBy(String::length,
+							//() -> new TreeMap<>((a,b) -> b-a)
+							() -> new TreeMap<Integer,List<String>>(reverseOrder()),
+							toList()
+							),
+						m -> {
+							return m.entrySet().stream()
+									.limit(3)
+									.flatMap( e -> e.getValue().stream())
+									.collect(joining(", "));
+						}
+						)
+					  );
+			System.out.println(primeParolePerLunghezza);
+
+	}
+
+
+}

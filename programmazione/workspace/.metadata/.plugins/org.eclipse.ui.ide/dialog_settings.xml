@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/eliamigliore/Downloads/BibliotecheIniziale"/>
+			<item value="/Users/eliamigliore/Downloads/EsameWarehouse"/>
+			<item value="/Users/eliamigliore/Downloads/BankSystemIniziale"/>
+			<item value="/Users/eliamigliore/Downloads/Telegram Desktop/EsameWarehouse (agginutivo gennaio 2017)"/>
+			<item value="/Users/eliamigliore/Downloads/Esame2005Abbigliamento"/>
+			<item value="/Users/eliamigliore/Downloads/EsameLibreria_base"/>
+			<item value="/Users/eliamigliore/Downloads/Exam20150622_JobApplications"/>
+			<item value="/Users/eliamigliore/Documents/workspace/lavori_scuola/OOP_LAB_Diet"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.team.svn.ui.repository"/>
+		</list>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

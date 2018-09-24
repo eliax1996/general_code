@@ -1,0 +1,46 @@
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import static java.util.stream.Collectors.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
+
+public class main {
+
+	public static void main(String[] args) {
+		TreeMap<Venditore,Integer> vends=new TreeMap<>();
+		
+		vends.put(new Venditore("A", 40), 5);
+		vends.put(new Venditore("B", 115), 5);
+		vends.put(new Venditore("C", 40), 5);
+		
+		vends.entrySet().stream().collect(	() -> new TreeMap<Integer,ArrayList<String>>(),
+											(m,e) -> ((TreeMap<Integer, ArrayList<String>>) m).computeIfAbsent(e.getValue(), (v) -> new ArrayList<>()).add(e.getKey().getNome() + ":" + e.getKey().getEta()),
+											(m,n) -> m.putAll(n) ).entrySet().stream().forEach(t -> System.out.println(t.getKey() + " = " + t.getValue().stream().collect(joining(", "))));
+		
+		vends.entrySet().stream().collect(
+					groupingBy(t -> t.getValue(),
+							mapping(t -> t.getKey().getNome() + ":" + t.getKey().getEta(), toList()))).
+				entrySet().stream().forEach(t -> System.out.println(t.getKey() + " = " + t.getValue().stream().collect(joining(", "))));
+		
+		Map<Integer, Set<Venditore>> e = vends.entrySet().stream().collect(groupingBy(t -> t.getValue(),mapping(Map.Entry<Venditore, Integer>::getKey,toCollection(() -> new TreeSet<Venditore>()))));
+		e.entrySet().stream().forEach(t -> System.out.println(t.getKey() + " = " + t.getValue().stream().map(x -> x.getNome()+":"+x.getEta()).collect(joining(", "))));
+		
+		Map<Integer,SortedMap<Integer,List<String>>> jjj = vends.entrySet().stream().collect(
+				groupingBy(t -> t.getValue(),
+						mapping(	t -> t.getKey(), 
+									groupingBy(x -> x.getEta(),() -> new TreeMap<Integer,List<String>>(),mapping(x -> x.getNome(), toList()))
+								)));
+		
+		jjj.entrySet().stream().map(t -> t.getKey() + " = " + t.getValue().entrySet().stream().map(x -> x.getKey() + ":{" + x.getValue().stream().collect(joining(", ")) + "}").collect(joining(" , "))).forEach(System.out::println);
+		
+		Map<Integer,Integer> numvenditoripervendita = vends.entrySet().stream().collect(groupingBy(t -> t.getValue(), collectingAndThen(counting(), t -> t.intValue())));
+		numvenditoripervendita.entrySet().stream().map(t -> t.getKey() + ":" + t.getValue()).forEach(System.out::println);
+		
+	}
+
+}

@@ -1,0 +1,532 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\begin{document}
+
+\title{Riassunto teoria dei segnali in \LaTeX{}}
+\author{Elia Migliore}
+
+\maketitle
+
+\begin{abstract}
+questo formulario non è sostitutivo dello studio e della
+comprensione a casa degli argomenti ma può essere considerato
+un utile strumento per lo svolgimento degli esercizi e per il ripasso
+\end{abstract}
+
+\section{Notazioni del libro}
+utilizzeremo il simbolo $g$ al posto del consueto simbolo $f$ non perchè un segnale non sia una funzione analitica nel senso "classico" ma poichè il simbolo $f$ è utilizzato per rappresentare la variabile della frequenza
+
+%---------descrizione generale dei valori caratterizzanti di un gegnale-----------------------------------------
+
+\section{Teoria dei segnali a tempo continuo}
+I segnali sono:
+\begin{itemize}
+\item segnali fisici
+\item segnali matematici
+\item segnali periodici/aperiodici
+\item segnali a media finita
+\item segnali a potenza finita
+\item segnali impulsivi
+\end{itemize}
+
+\textbf{segnale analogico a tempo continuo}: segnale la cui grandezza rappresentata varia
+in funzione del tempo in modo continuo su $\rm I\!R$\\
+
+\endp
+un segnale complesso richiede sempre 2 grafici per la sua rappresentazione:\\
+il grafico della fase, definito come
+$$arg(g(t)) = arctan{\frac{\operatorname{Im}\{g(t)\}}{\operatorname{Re}\{g(t)\}}}$$
+il grafico del suo modulo, definito come
+$$|f(t)| = \sqrt{\operatorname{Im}\{g(t)\}^2+{\operatorname{Re}\{g(t)\}^2}}$$
+
+formula per la rappresentazione dell'\textbf{energia di un segnale}:
+$$\int_{-\infty}^{+\infty} |g(x)|^2dt$$
+
+formula per la rappresentazione della \textbf{potenza media di un segnale}:
+$$\lim_{T \to \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{+\frac{T}{2}} |g(x)|^2dt$$
+
+la potenza istantanea coincide con il modulo al quadrato del segnale
+dimostrazione:
+
+\textbf{distanza} tra due segnali:
+$$\operatorname{d}(f,g) = \sqrt{\int_{-\infty}^{\infty} |g(x) - h(x)|^2dt$$}$$
+
+
+si ricorda che per un segnale è valida la seguente equazione:
+$$\lim_{\Delta t\to 0} \sum\limits_{n=-\infty}^{\infty} g(n\Delta t)\operatorname{p _{\Delta t}}(t -n \Delta t) = g(t)$$
+
+%---------delta di Dirac------------------------------------------------------------------------------------
+
+\section{Delta di Dirac}
+
+Si elencheranno ora alcuni modi in cui è possibile definire la Delta di Dirac.
+
+Una definizione della Delta è
+$$\delta(t) = \lim_{\Delta t\to 0} \operatorname{p_{\Delta t}}(t)$$
+ma anche:
+$$\delta(t) = \lim_{\Delta t\to 0} \frac{1}{\Delta t} \frac{\sin(\frac{t}{\Delta t})}{(\frac{t}{\Delta t})}$$
+infine:
+$$\delta(t) = \int_{-\infty}^{+\infty} e^{j2\pi ft}dt$$
+
+
+
+proprietà fondamentale della delta:
+
+$$\int_{-\infty}^{+\infty} g(x) \delta(t) =
+\lim_{\Delta t\to 0} \frac{1}{\Delta t} \int_{-\infty}^{+\infty} g(x) \cdot \operatorname{p _{\Delta t}}(t) =
+\lim_{\Delta t\to 0} \frac{1}{\Delta t} \cdot g(0) \cdot \Delta t =
+g(0)$$
+
+da cui deriva la proprietà più importante della delta per il corso:
+$$\int_{-\infty}^{+\infty} g(x) \delta(t - t_0) =
+\lim_{\Delta t\to 0} \frac{1}{\Delta t} \int_{-\infty}^{+\infty} g(x) \cdot \operatorname{p _{\Delta t}}(t - t_0) =
+\lim_{\Delta t\to 0} \frac{1}{\Delta t} \cdot g(t _0) \cdot \Delta t =
+g(t _0)$$
+
+cioè \textbf{la delta campiona il segnale}:
+$$\int_{-\infty}^{+\infty} g(x) \delta(t - t_0) = g(t_0)$$
+
+altra proprietà fondamentale della delta è la proprietà della traslazione:
+$$g(t)*\delta(t-\tau) = g(t - \tau)$$
+che si dimostra così:
+$$g(t)*\delta(t-\tau) = \int_{-\infty}^{+\infty} g(t - t') \delta(t' - \tau) = g(t - \tau)$$
+
+\section{Serie di Fourier}
+
+serie di fourier di un segnale:
+$$\int_{-\infty}^{+\infty} \mu_n e^{j 2\pi \frac{n}{T}t}dt$$
+
+dove i coefficienti sono dati dalla formula:
+$$\mu_n = \frac{1}{T} \int_{-\infty}^{+\infty} g(t) e^{-j 2\pi \frac{n}{T} t}dt$$
+
+grazie alla corrispondenza biunivoca di ogni segnale proiettabile in modo esatto sullo spazio della frequenza possiamo affermare che:
+$$ \operatorname{E}(f) =  \sum\limits_{n=-\infty}^{\infty} |\mu_n|^2$$
+
+
+
+$$\int_{-T}^{+T} |g(x) e^{-j2\pi f}$$
+
+\subsection{Dalla serie di Fourier alla trasformata di Fourier}
+estendiamo ora il limite di avere una funzione periodica, il formalismo da cui
+si estende la serie di fourier alla trasformata di fourier esula dallo scopo di questo libro
+ma possiamo dare un idea di come venga fatto in una dimostrazione meno rigorosa:
+
+$$g(t) = \lim_{T \to \infty} \sum\limits_{n=-\infty}^{\infty} (\frac{1}{T} \int_{-\infty}^{+\infty} g(t) e^{-j 2\pi \frac{n}{T} t}dt )e^{j 2\pi \frac{n}{T} t}$$
+
+avendo fatto il seguente limite abbiamo diversi operatori che cambiano il loro significato:
+\n
+abbiamo $\frac{1}{T}$ che diventa una misura ovvero:
+$\frac{1}{T} \to \theta$
+abbiamo $\frac{n}{T}$ che assumento un valore per ogni numero reale diventa:
+$\frac{n}{T} \to f$
+infine abbiamo una somma per ogni numero appartenente a $\rm I\!R$ pesata da una misura,
+la sommatoria diventa quindi un integrale, ovvero:
+$$\sum_{-\infty}^{+\infty} \to \int_{-\infty}^{+\infty}$$
+
+l'espressione finale sarà quindi:
+$$g(t) = \lim_{T \to \infty} \int\limits_{-\infty}^{\infty} (\int_{-\infty}^{+\infty} g(t) e^{-j 2\pi ft}dt )e^{j 2\pi \frac{n}{T} t}df $$
+
+relazioni importanti tempo-frequenza:
+se una funzione ha supporto compatto nel tempo avrà supporto infinito in frequenza
+se una funzione ha supporto compatto nella frequenza avrà supporto compatto nel tempo
+
+
+%---------sistemi lineari---------------------------------------------------------------------------------------
+
+\section{Sistemi Lineari}
+un sistema è una combinazione di operatori matematici che trasformano un segnale in un altro.\\
+I sistemi possono essere classificati in:
+\begin{itemize}
+\item lineari/non lineari
+\item senza memoria/con memoria
+\item tempo invarianti/tempo varianti
+\item causali/non causali
+\item reali/non reali
+\item stabili/non stabili
+\end{itemize}
+
+
+sistemi lineari:\\
+vale il principio di sovrapposizione degli effetti e la tempo invarianza.\\
+le seguenti operazioni devono essere applicate alla relazione ingresso-uscita del sistema di cui si vuole
+verificare l'appartenenza o no al gruppo dei sistemi LTI
+
+sovrapposizione degli effetti:
+$$\mathcal{L} (\alpha_1 g(t) + \alpha_2 h(t)) = \mathcal{L} (\alpha_1 g(t)) + \mathcal{L} (\alpha_2 h(t)) $$
+\\
+per verificarla basta mettere in ingresso del sistema due funzioni con costanti moltiplicative e verificare che l'uscita del sistema sia la stessa che si avrebbe mettendo le due funzioni nello stesso sistema separatamente e sommando il risultato delle uscite del sistema
+
+$$\mathcal{L} (g(t)) = y(t) \Leftrightarrow \mathcal{L} (g(t + T)) = y(t + T) $$
+
+per verificare la tempo invarianza basta inserire in ingresso una funzione e verificare che l'uscita del sistema traslata di un tempo $T$ (basta sostituire nell'uscita del sistema ogni volta che si trova $t$ con $t + T$) sia equivalente all'uscita del sistema quando si pone all'ingresso la stessa funzione traslata di un tempo $T$
+
+
+%---------funzione di trasferimento--------------------------------------------------------------------------------
+
+\subsection{definizione della funzione di trasferimento}
+si definisce la funzione di trasferimento di un sistema LTI la trasformata di Fourier della risposta all'impulso
+$$H(f) = F(\mathcal{L}(\delta(t))) = F(h(t))$$
+
+si può dimostrare che la trasformata di Fourier dell'uscita di un sistema LTI è il prodotto della trasformata di Fourier del segnale in ingresso per la funzione di trasferimento, ovvero:
+$$Y(f) = H(f)X(f)$$
+
+ovvero, prendendo un impulso chiamato quì $X(f)$ e facendolo passare per un sistema LTI otteniamo in uscita la funzione $Y(f)$, il rapporto tra queste due funzioni è la nostra funzione di trasferimento:
+$$H(f)=\frac{Y(f)}{X(f)}$$
+
+spiegato meglio, poniamo come funzione all'ingresso un esponenziale complesso, abbiamo:
+$$Y(f) = \delta(f - f_0) H(f) = \delta(f - f_0) H(f_0)$$
+$$y(t)=H(f_0)e^{j2\pi f_0t}=x(t)H(f_0)$$
+...
+
+\subsection{requisiti per un sistema fisicamente realizzabile}
+\begin{itemize}
+\item un sistema si dice causale quando l'uscita ad un certo istante di tempo non dipende dagli istanti di tempo futuri, si dimostra che la causalità nei sistemi LTI richiede che:
+la risposta all'impulso deve essere nulla per istanti di tempo $t < 0$
+
+\item in un sistema reale posto un ingresso reale si deve avere uscita reale,
+questo si traduce nell'avere una risposta all'impulso reale
+
+\item condizioni di stabilità:
+ad un ingresso finito deve corrispondere un uscita finita, è una condizione
+sufficiente che il massimo della funzione in ingresso e l'integrale su $\rm I\!R$ della
+sua risposta all'impulso siano finiti
+\end{itemize}
+
+
+%---------definizione di banda---------------------------------------------------------------------------------
+
+\subsection{definizioni di banda}
+
+definizione di banda a 3db:
+$$B(x) = 3 log_{10}(|H(f)|^2)$$
+
+\section{Segnali periodici}
+definizione di segnale periodico:
+$$x(t) = \sum\limits_{n=-\infty}^{\infty} x_t(t)(t-nT) = x(t+kT) \quad \forall k \in \rm I\!R$$
+
+definizione di un segnale ciclico:
+$$x(t) = \sum\limits_{n=-\infty}^{\infty} x_t(t)(t-nT) \neq x(t+kT)$$
+ovvero un segnale può essere ripetuto un numero anche molto grande di volte ma non vale per ogni numero reale,
+ogni segnale reale è al più ciclico ma solo i segnali matematici sono segnali periodici
+
+%---------Segnali ciclici------------------------------------------------------------------------------------
+
+\subsection{trasformata di fourier dei segnali ciclici}
+cerchiamo ora di calcolare la trasformata di Fourier per un segnale periodico:
+
+$$\int_{-\infty}^{+\infty} \sum\limits_{n=-\infty}^{+\infty} \mu_n e^{j 2\pi \frac{n}{T}t}e^{-j 2\pi ft}dt =
+\sum\limits_{n=-\infty}^{+\infty} \mu_n  \int_{-\infty}^{+\infty}e^{-j 2\pi (f-\frac{n}{T})t}dt =
+\sum\limits_{n=-\infty}^{\infty} \mu_n  \delta(f - \frac{n}{T})$$
+(notare che si è utilizzata una delle definizioni della delta con un cambio di variabile all'ultimo passaggio)
+
+volendo estendere questo risultato ai segnali ciclici dobbiamo partire dalla relazione esposta sopra e cercare di renderla valida e applicabile anche per i segnali troncati, in questo modo possiamo ricondurre un segnale periodico a un segnale ciclico considerando il segnale ciclico come un segnale periodico troncato.
+Possiamo notare che le uniche dipendenze dalla tipologia di segnale nella relazione che abbiamo espresso
+prima è dovuta essenzialmente ai coefficenti $u_n$, quindi basta trovare l'espressione dei coefficenti $u_n$ relativa ai segnali troncati:
+ $$u_n = \frac{1}{T} \int_{-\frac{T}{2}}^{+\frac{T}{2}} x(t)e^{-j 2\pi \frac{n}{T}t}dt =
+ \frac{1}{T} \int_{-\infty}^{+\infty} x_T(t)e^{-j 2\pi \frac{n}{T}t}dt =
+  \frac{1}{T} X_T(\frac{n}{T})$$
+mettendo assieme le due espressioni otteniamo una formula che descrive un segnale periodico o ciclico:
+
+$$X(f)=\frac{1}{T} X_T(\frac{n}{T})\cdot\delta(f-\frac{n}{T})$$
+
+si ottiene quindi una trasformata impulsiva con impulsi equispaziati di un $\frac{1}{T}$
+moltiplicata per il valore assunto dalla trasformata in corrispondenza di quella frequenza ovvero:
+$$f_n = \frac{n}{T}$$
+
+la $C_t(n)$ sotto definita viene chiamato segnale "campionatore" o treno di impulsi
+$$C_t(n) = \sum_{-\infty}^{+\infty}\delta(f-\frac{n}{T})$$
+
+facendo la convoluzione tra un segnale e un treno di impulsi otteniamo un segnale periodico di periodo pari alla spaziatura degli impulsi
+$$C_t(n)*x(t) =
+\sum_{-\infty}^{+\infty}x(t)\delta(f-\frac{n}{T}) =
+\sum_{-\infty}^{+\infty}x(f-\frac{n}{T})$$
+
+notare che un generico segnale $z(t)$ definito:
+$$\sum_{-\infty}^{+\infty}z(f-\frac{n}{T})$$
+risulta essere periodico di periodo $T$ se prendiamo un supporto non limitato,
+ora ragionando al contrario possiamo calcolare la trasformata partendo da quello che
+troveremmo antitrasformando utilizzando la proprietà di dualità della trasformata di
+Fourier (controllare dentro perche z(t) dovrebbe avere la f come variabile, oppure ho capito e spiegato male i passaggi):
+$$x(t) = z(t)*\sum_{-\infty}^{+\infty}\delta(f-\frac{n}{T})$$
+
+E dunque:
+$$X(f) = Z(f) \cdot \frac{1}{T}\sum_{-\infty}^{+\infty}\delta(f-\frac{n}{T}) =
+\frac{1}{T}\sum_{-\infty}^{+\infty} Z(f) \cdot \delta(f-\frac{n}{T}) =
+\frac{1}{T}\sum_{-\infty}^{+\infty} Z(\frac{n}{T}) \cdot \delta(f-\frac{n}{T})$$
+
+questa rappresentazione non è univoca, possono essere utilizzati tutti quei segnali
+che soddisfano la relazione
+$$z(t):\sum_{-\infty}^{+\infty} z(t-\frac{n}{T}) = x_t(t)$$
+
+%---------Spettri e autocorrelazione------------------------------------------------------------------------------
+
+\section{Spettri e funzioni di Correlazione}
+viene definito lo spettro di energia di un segnale come:
+$$S_x(f)=|X(f)|^2$$
+
+proprietà valide solo per il passaggio tramite sistemi LTI:
+$$E(x) = \int_{-\infty}^{+\infty} S_x(f)df$$
+$$E(y) = \int_{-\infty}^{+\infty} S_x(f)|H(f)|^2df$$
+$$S(y) = S_x(f)|H(f)|^2df$$
+lo spettro di energia fornisce l'informazione del contenuto energetico del segnale per ogni frequenza
+e quindi l'integrale su $\rm I\!R$ di tale funzione deve necessariamente fornire l'energia del segnale
+
+definizione di autocorrelazione di un segnale:
+$$R_x(\tau)=\int_{-\infty}^{+\infty} x(t + \tau)x^*(t)dt$$
+può anche venire espressa in termini di auto-convoluzione:
+$$R_x(\tau) = x(\tau)*x^*(-\tau)$$
+
+altra formula importante:
+$$S_x(f) = F(R_x(\tau)) = | F\{g(x)\}|^2$$
+
+può essere comodo ricordare che il modulo di un esponenziale complesso è sempre 1
+e essendo la traslazione un esponenziale complesso si capisce perchè la trasformata di fourier
+in modulo quadro, la trasformata dell'autocorrelazione (x(t)*x(-t)) diano lo stesso risultato
+
+altra proprietà notevole:
+$$R_x(0) = E(x)$$
+
+per un segnale reale $x(t)$ l'autocorrelazione è:
+reale
+pari
+con un massimo nell'origine
+questo massimo è uguale all'energia del segnale
+
+i segnali periodici non avendo energia finita non sono dotati
+della possibiltà di avere uno spettro di energia, ecco perchè viene
+definito lo spettro di potenza;
+definizione di spettro di potenza per segnali periodici:
+$$\sum_{-\infty}^{+\infty}|\mu_n|^2 \delta(f-\frac{i}{T}) = P(x)$$
+
+in ugual modo possiamo definire una funzione di autocorrelazione:
+$$\frac{1}{T}\int_{-T/2}^{+T/2} x(t+\tau)x^*(t)df = P(x)$$
+lo spettro di potenza rispetta la seguente relazione:
+$$\int_{-\infty}^{+\infty} Gx(t)df = P(x)$$
+
+mentre per un segnale a potenza media finita nel caso generale la definizione di spettro
+di potenza è più difficile e passa attraverso le seguenti definizioni:
+definizione di Periodogramma (ovvero spettro di energia del segnale troncato su una
+finestra temporale $T$ normalizzata):
+$$S_T(f)=\lim_{T \to +\infty}\frac{1}{T}|X(f)|^2$$
+definizione di funzione di autocorrelazione:
+$$\Phi(\tau) = F^{-1}\{G_x(f)\} =\lim_{T \to +\infty} \frac{1}{T} \int_{-\infty}^{+\infty}x(t+\tau)x^*(t)dt$$
+
+spettro di potenza per segnali a potenza finita filtrati:
+$$G_y(f) = G_x(f)|H(f)|^2$$
+
+%---------nozioni ti teoria di probabilità-------------------------------------------------------------------------
+
+\section{Nozioni di teoria della probabilità}
+definizione di \textbf{valore atteso}
+\\
+data una funzione $g(\xi)$ della variabile di provabilità $\xi$, il suo \textbf{valore atteso} o media è
+definito come:
+$$\operatorname{E}\{g(\xi)\} = \int_{-\infty}^{+\infty} g(\xi)f_\xi (x)$$
+dove $f_\xi (x)$ rappresenta la funzione di densità di provabilità
+
+definizione di \textbf{momento}
+il momento è quel valore atteso di una generica variabile casuale, dove viene
+posta come variabile $g(\xi)$ un polinomio della variabile casuale di
+ordine n
+$$\mu_k = \operatorname{E}\{\xi^k\}$$
+è chiamato media il momento di ordine 1
+$$\mu_1 = \operatorname{E}\{\xi^1\} = \int_{-\infty}^{+\infty} xf_\xi (x)$$
+è chiamato valore quadratico medio il momento di ordine 2
+$$\mu_2 = \operatorname{E}\{\xi^2\} = \int_{-\infty}^{+\infty} x^2f_\xi (x)$$
+
+
+sono definiti \textbf{momenti centrali} i momenti di ordine n in cui la
+variabile aleatoria è traslata di un numero $\mu$
+$$m_k = \operatorname{E}\{(\xi-\mu)^n\} = \int_{-\infty}^{+\infty} (x-\mu)^kf_\xi (x)$$
+è definita varianza di una variabile casuale il momento centrato
+nella media, ovvero:
+$$m_2 = \operatorname{E}\{(\xi-\mu_1)^2\} = \int_{-\infty}^{+\infty} (x-\mu_1)^2f_\xi (x) =
+\int_{-\infty}^{+\infty} (x-\int_{-\infty}^{+\infty} xf_\xi (x)dx)^2f_\xi (x)dx$$
+si definisce deviazione standard la radice quadrata della varianda
+$$\sigma _\epsilon^2 = \int_{-\infty}^{+\infty} (x-\mu_1)^2f_\xi (x) \Rightarrow  \sigma _\epsilon = \sqrt{\int_{-\infty}^{+\infty} (x-\mu_1)^2f_\xi (x)} $$
+due variabili casuali definiscono i momenti centrali congiunti
+$$m_k = \operatorname{E}\{\xi^n\eta^k\}$$
+$$m_k = \operatorname{E}\{(\xi-\mu_\xi)^k(\eta-\mu_\eta )^k\}$$
+la covarianza è definita come
+$$\sigma _{\xi \mu} = m _{1,1}$$
+il coefficiente di correlazione è definito come
+$$\rho _{\xi \eta} = \frac{\sigma _{\xi \mu}}{\sigma _{\xi} \sigma _{\mu}}$$
+definizione di indipendenza lineare, detta anche \textbf{scorrelazione}
+$$\operatorname{E}(\xi_1,\xi_2) = \operatorname{E}(\xi_1) \operatorname{E}(\xi_2)$$
+indipendenza \textbf{statistica} $\not \Rightarrow$ indipendenza \textbf{linerare} ("scorrelazione")
+
+\begin{equation}
+\begin{split}
+\operatorname{E}(\xi_1,\xi_2) =
+\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} x_1x_2f_{\xi_1,\xi_2}(x_1,x_2)dx_1dx_2 =
+\\
+= \int_{-\infty}^{+\infty}
+x_1f_{\xi_1}(x_1)dx_1\int_{-\infty}^{+\infty}x_2f_{\xi_2}(x_2)dx_2=
+\operatorname{E}\{\xi_1\}\operatorname{E}\{\xi_2\}
+\end{split}
+\end{equation}
+si ricordi che la combinazione di un qualunque numero di variabili casuali fornisce in uscita
+una variabile casuale che è somma delle medie delle variabili casuali, l'operatore di media è un
+operatore lineare
+\\
+la cosa vale anche con la varianza $\Leftrightarrow$ le variabili \textbf{sono scorrelate}
+\\
+è chiamata \textbf{funzione caratteristica} di una variabile casuale il valore atteso
+definito così
+$$\operatorname{C_\xi}(p) = \int_{-\infty}^{+\infty} f_\xi(x)dx$$
+dalla funzione caratteristica è possibile calcolare in modo estremamente semplificato
+i momenti come:
+$$\mu_k = j^{-k}\operatorname{C_\xi^{(k)}}(0)$$
+inoltre se $Z = X + Y$ e $X$ e $Y$ sono statisticamente indipendenti, allora
+$$f_Z(z) = f_X(Z)*f_Y(Z) \Rightarrow C_Z(p) = C_X(p)C_Y(p)$$
+
+%---------nozioni sui processi Casuali-------------------------------------------------------------------------
+definizione di \textbf{processo casuale o stocastico}
+In matematica, più precisamente in teoria della probabilità, un processo stocastico (o processo aleatorio) è la versione probabilistica del concetto di sistema dinamico. Un processo aleatorio è un insieme ordinato di funzioni reali di un certo parametro (in genere il tempo) che gode di determinate proprietà statistiche. In generale è possibile identificare un processo stocastico come una famiglia ad un parametro di variabili casuali reali
+$X(t)$ rappresentanti le trasformazioni dello stato iniziale nello stato al tempo tt. In termini più precisi, un processo stocastico si basa su una variabile casuale che prende valori in spazi più generali dei numeri reali (come ad esempio,
+$\rm I\!R ^n$, o spazi funzionali, o successioni di numeri reali). I processi aleatori sono un'estensione del concetto di variabile aleatoria, nel momento in cui viene preso in considerazione anche il parametro tempo.
+
+
+definizione di \textbf{processo stazionario}
+se un certo segnale appartiene al processo stazionario(all'insieme dei segnali possibili)
+allora il processo è stazionario se anche tutte le traslazioni del segnale $x(t -T) \in S_x \ , \forall \ T \in \rm I\!R $
+
+la precedente proprietà implica che le statistiche congiunte tra $n$ campioni non dipendano
+dall'origine dell'asse dei tempi ma solo dalla differenza dei tempi tra i segnali $\tau = t-t^'$,
+ponendo questa proprietà per la statistica del primo ordine di un processo stazionario
+ne consegue che la media non dipende da $t$ e quindi la media di tutte le realizzazioni
+sono uguali, mentre se si applica per le statistiche di ordine superiore al primo ne
+consegue che una statistica di ordine $n$ dipende da $n-1$ parametri.
+Nel caso della varianza in particolare si ha che la varianza dipende unicamente da $\tau$.
+
+è detto processo stazionario \textbf{in senso stretto di ordine n}
+, un processo stazionario le cui statistiche fino all'ordine $n$ dipendono
+da $n-1$ variabili. A titolo di esempio si osservi che questo implica che
+la statistica del primo ordine (la media) di un processo stazionario del
+primo ordine non dipende dal tempo e quindi è uguale per ogni realizzazione.
+
+è detto processo stazionario \textbf{in senso lato(Wide Sense Stationary WSS)} quando
+le proprietà precedenti valgono almeno fino all'ordine 2, ovvero sia per la media
+che per la varianza
+
+\begin{equation}
+\begin{split}
+\begin{flalign}
+m_x(t) \Rightarrow m_x
+\end{flalign}
+\\
+\begin{flalign}
+R_x(t_1,t_2) \Rightarrow R_x(t_1-t_2)
+\end{flalign}
+\end{split}
+\end{equation}
+
+il rumore termico è un esempio di processo stazionario in senso stretto per ogni
+n, lo si può sperimentare sperimentalmente e verificare concettualmente: i fenomeni
+quantistici legati allo spostamento elettronico nel materiale resistico non sono
+influenzati dal sistema di riferimento temporale che noi fissiamo, si muovono
+seguendo la loro legge indipendentemente da dove noi fissiamo lo $0$ temporale all'interno
+della nostra finestra di osservazione.
+
+definizione di \textbf{ciclostazionarietà}.\\
+un sistema è detto ciclostazionario quando se una certa realizzazione appartiene
+al processo allora tutte le sue traslazioni di multipli di una costante $T$ detta
+periodo appartebgono ancora al sistema e sono equiprobabili.
+
+\begin{equation}
+\begin{split}
+\begin{flalign}
+m_x(t) \Rightarrow m_x(t-T)
+\end{flalign}
+\\
+\begin{flalign}
+R_x(t_1,t_2) \Rightarrow R_x(t_1 - T,t_2 - T)
+\end{flalign}
+\end{split}
+\end{equation}
+Ovvero la media è periodica di periodo $T$ e l'autocorrelazione
+è periodica in $t_1$ e $t_2$ . Si osservi che se si induce un \textbf{ritardo
+casuale uniforme} sulla periodicità di un segnale ciclostazionario, esso
+\textbf{diventa un segnale stazionario}! Questo può essere considerato
+lecito solo se ha senso nel sistema preso in considerazione
+
+%---------relazioni ingresso e uscita processi casuali------------------------------------------------------
+
+\section{relazioni ingresso e uscita processi casuali}
+un sistema ingresso-uscita deterministico che elabora un processo casuale restituisce in uscita
+un altro processo casuale, in questa sezione cercheremo di capire come può essere
+espressa in termini matematici l'uscita dato un ingresso di questo tipo.
+
+il processo di uscita è definibile unicamente se esistono alcune condizioni di convergenza stocastica.
+le tipologie di convergensta stocastica sono:
+\begin{itemize}
+\item convergenza in media quadratica ...
+\item convergenza in probabilità ...
+\item convergenza in termini di distribuzione cumulativa ...
+\end{itemize}
+
+la caratterizzazione completa del problema richiederebbe di risolvere una statistica di ordine $n$,
+in realtà solitamente ci si accontenta della statistica del primo e del secondo ordine, media e autocorrelazione
+$$F_y(y_1,y_2,...,y_n) \not \Rightarrow always \ possible$$
+$$m_y(t) = \operatorname{E}\{Y(t)\} = \int_{-\infty}^{+\infty} y f_y(y;t)dy$$
+$$R_y(t_1,t_2) = \operatorname{E}\{Y_1(t)Y_2^*(t)\} =
+\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} y_1y_2 f_y(y_1,y_2;t_1,t_2)dy_1dy_2$$
+dove $R_y(t_1,t_2)$ è l'autocorrelazione ovvero la media del valore assunto dal segnale traslato
+di tutti i tempi possibili
+
+\pagebreak
+
+\subsection{esempio di trasformazione di un sistema lineare: la derivata} % (fold)
+
+% subsection subsection_name (end)esempio di un sistema lineare: la derivata
+dato che nei segnali WSS la media non dipende dal tempo (costante nel tempo) abbiamo che $m_y(t) = 0$
+cioè la derivata temporale è nulla, quindi anche la media del sistema in uscita sarà nulla.
+l'autocorrelazione dipende solo dalla differenza dei tempi $\tau$
+\begin{equation}
+\begin{split}
+\begin{flalign}
+R_y(t_1,t_2) = \frac{\partial^2}{\partial_{t_1} \partial_{t_2}} R_x(t_1,t_2) = \frac{\partial^2}{\partial_{t_1} \partial_{t_2}} R_x(t_1-t_2) = \frac{\partial^2}{\partial_{t_1} \partial_{t_2}} R_x(\tau)
+\end{flalign}
+\\
+\begin{flalign}
+dove: \tau = t_1-t_2
+\end{flalign}
+\end{equation}
+\end{split}
+\end{flalign}
+
+\subsection{Trasformazione LTI su un processo WSS}
+la media del processo in uscita è data da
+$$m_y(t) = \operatorname{E}\{Y(t)\} = \operatorname{E}\{h(t)*X(t)\} =
+\operatorname{E}\{ \int_{-\infty}^{+\infty} h(\tau) X(t-\tau) d\tau \} =
+$$$$= \int_{-\infty}^{+\infty} h(\tau) \operatorname{E}\{  X(t-\tau) \} d\tau =
+\int_{-\infty}^{+\infty} h(\tau) m_x(\tau) d\tau =  m_x(\tau) \int_{-\infty}^{+\infty} h(\tau) d\tau$$
+
+$$R_\tau(...) = ....$$
+
+densità spettrale di potenza del segnale in uscita
+$$S_x(f) = \operatorname{F}\{R_x(\tau)\} = \int R_x(\tau) e^{j 2\pi f \tau} d\tau$$
+
+possiamo definire così l'uscita di un processo WSS da un filtro LTI \textbf{ricordala! è importante}
+$$S_y(\tau) = S_x(\tau)|H(f)|^2$$
+
+viene detto rumore bianco un segnale costante su tutto l'asse delle frequenze
+
+\subsection{processi ergodici}
+si definisce media temporale la media definita così
+$$\operatorname{g}(x(t;s0)) =
+\lim_{T \to \infty} \frac{1}{T} \int_{-\frac{T}{2}}^{+\frac{T}{2}} \operatorname{g}(x(t;s0)) dt$$
+che coincide con
+$$\operatorname{E}\{g(X(t))\} = \sum_i \operatorname{g}(x(t;s_i)) \operatorname{P}(x(t;s_i)) $$
+solo se il processo è detto ergodico
+
+in sostanza con un processo ergodico basta osservare le proprietà statistiche di una sua realizzazione per
+ottenere informazioni su tutte le proprietà statistiche delle realizzazioni di un processo
+$$\operatorname{E_s}\{g(X(t))\} = g(X(t,s_i)) \ \forall \ i \in \N \mathbb{N}$$
+
+\section{Conclusion}
+devo ancora continuare con una buona fetta degli argomenti trattati e spiegare nel dettaglio con esempi e esercizi basici i concetti che ho definito prima ma questo è un buon inizio per la definizione dello scopo del libro
+
+\end{document}

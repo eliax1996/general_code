@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+externalMigrateFromAuthorizationDatabase/isMigrated=true
+migrateFromAuthorizationDatabase/isMigrated=true
+repositories/00cb14bf1355001714a2b449097c3196=00cb14bf1355001714a2b449097c3196;http\://oop.polito.it/svn/OOPLabs/s228279;http\://oop.polito.it/svn/OOPLabs/s228279;branches;tags;trunk;true;db8acd49-baed-4124-8697-72d3dddc561d;http\://oop.polito.it/svn/OOPLabs/s228279;;false;;;0
+repositories/6098b719066a00171249e37939235771=6098b719066a00171249e37939235771;http\://oop.polito.it/svn/OOPExam/student177DOMO;http\://oop.polito.it/svn/OOPExam/student177DOMO;branches;tags;trunk;true;d8ad42af-73bb-4f22-ba05-4b3385be0a9c;http\://oop.polito.it/svn/OOPExam/student177DOMO;;false;;;0
+repositories/7027618e9f68001719a0e0ec29aa00ae=7027618e9f68001719a0e0ec29aa00ae;http\://oop.polito.it/svn/OOPExam/student177DOMO/Exam20170714_CarSharing;http\://oop.polito.it/svn/OOPExam/student177DOMO/Exam20170714_CarSharing;branches;tags;trunk;true;d8ad42af-73bb-4f22-ba05-4b3385be0a9c;http\://oop.polito.it/svn/OOPExam/student177DOMO;;false;;;0
+repositories/c055a9bde86000171973d630cbf7dd31=c055a9bde86000171973d630cbf7dd31;http\://oop.polito.it/svn/OOPExam/student176XS0_;http\://oop.polito.it/svn/OOPExam/student176XS0_;branches;tags;trunk;true;8fb1d817-a3ab-4c6a-aceb-f61b567c0190;http\://oop.polito.it/svn/OOPExam/student176XS0_;;false;;;0
+repositories/c0e8b8c594550017109bab3247dbbeec=c0e8b8c594550017109bab3247dbbeec;http\://oop.polito.it/svn/OOP2017/ITA_AK;OOP SAMPLE CODE;branches;tags;trunk;true;406e62c3-7c04-46b1-b96c-a9a99b099e24;http\://oop.polito.it/svn/OOP2017;;false;;;0
+synch_info/contigous=true

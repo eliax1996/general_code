@@ -1,0 +1,551 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"lis",
+				"listfiles\tstatement"
+			],
+			[
+				"inpu",
+				"input_file\tstatement"
+			],
+			[
+				"epsilon",
+				"varepsilon\t\\varepsilon"
+			],
+			[
+				"e",
+				"epsilon\t\\epsilon"
+			],
+			[
+				"sub",
+				"subsection"
+			],
+			[
+				"d",
+				"D"
+			],
+			[
+				"g",
+				"G"
+			],
+			[
+				"margi",
+				"margine_sinistro"
+			],
+			[
+				"pro",
+				"prof_function\tfunction"
+			],
+			[
+				"mi",
+				"mia_function\tfunction"
+			],
+			[
+				"re",
+				"real\tfunction"
+			],
+			[
+				"pl",
+				"plot"
+			],
+			[
+				"x",
+				"x_list\tstatement"
+			],
+			[
+				"max",
+				"max_value"
+			],
+			[
+				"func",
+				"function_set_point\tfunction"
+			],
+			[
+				"cont",
+				"continua"
+			],
+			[
+				"place",
+				"place_to\tstatement"
+			],
+			[
+				"lon",
+				"lon_place_to\tstatement"
+			],
+			[
+				"lat",
+				"lat_place_to\tstatement"
+			],
+			[
+				"from",
+				"lon_place_from"
+			],
+			[
+				"fr",
+				"lat_place_from"
+			],
+			[
+				"luo",
+				"luogo\tstatement"
+			],
+			[
+				"geo",
+				"geocode_result\tstatement"
+			],
+			[
+				"json",
+				"json_c\tstatement"
+			],
+			[
+				"s",
+				"size2"
+			],
+			[
+				"siz",
+				"size1"
+			],
+			[
+				"size",
+				"size2"
+			],
+			[
+				"si",
+				"size1"
+			],
+			[
+				"merg",
+				"merge_sort"
+			],
+			[
+				"arra",
+				"array_s\tparam"
+			],
+			[
+				"prin",
+				"print_vector\tfunction"
+			],
+			[
+				"pri",
+				"print\tkeyword"
+			],
+			[
+				"sha",
+				"sha_loop\tfunction"
+			],
+			[
+				"sh",
+				"sha256\tfunction"
+			],
+			[
+				"ti",
+				"timeit\tfunction"
+			],
+			[
+				"thre",
+				"threads\tstatement"
+			],
+			[
+				"down",
+				"download_ebook\tfunction"
+			],
+			[
+				"url",
+				"urlopen\tfunction"
+			],
+			[
+				"file",
+				"file_url_download\tstatement"
+			],
+			[
+				"read",
+				"readline\tfunction"
+			],
+			[
+				"rea",
+				"readline\tfunction"
+			],
+			[
+				"rand",
+				"rand_vector\tstatement"
+			],
+			[
+				"qui",
+				"quick_sort_exchange\tfunction"
+			],
+			[
+				"get",
+				"get_rand_num\tfunction"
+			],
+			[
+				"co",
+				"cookie_esempio\tstatement"
+			],
+			[
+				"in",
+				"information\tstatement"
+			],
+			[
+				"li",
+				"line\tstatement"
+			],
+			[
+				"coo",
+				"cookie_iniziale\tstatement"
+			],
+			[
+				"res",
+				"res_2\tstatement"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"f",
+				"filter\tfunction"
+			],
+			[
+				"c",
+				"class\tNew Class"
+			],
+			[
+				"str",
+				"str4\tstatement"
+			],
+			[
+				"de",
+				"delattr\tfunction"
+			],
+			[
+				"p",
+				"pow\tfunction"
+			],
+			[
+				"num",
+				"num_complesso\tstatement"
+			],
+			[
+				"var",
+				"var_dump"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"latex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"bre",
+				"Python Breakpoints: Goto"
+			],
+			[
+				"breakpoi",
+				"Python Breakpoints: Toggle"
+			],
+			[
+				"brea",
+				"Python Breakpoints: Goto"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Create Package File"
+			],
+			[
+				"buil",
+				"Build With: Python"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"anaco",
+				"Anaconda: Vagrant Enable"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 178.0,
+		"history":
+		[
+			"ciao",
+			"input(\"ciao\")",
+			"a",
+			"dir(str)",
+			"help",
+			"str1",
+			"c",
+			"ciao",
+			"cioa"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/RAM Disk/input_2.txt",
+		"/Volumes/boot/config.txt",
+		"/Volumes/boot/cmdline.txt",
+		"/Users/eliamigliore/Desktop/reti_riassunto.txt",
+		"/Users/eliamigliore/Documents/programmazione/node_js/prova_che_tutto_funzioni.js",
+		"/Users/eliamigliore/Documents/programmazione/node_js/mongodb_interface/server.js",
+		"/Users/eliamigliore/Documents/programmazione/node_js/mongodb_interface/package.json",
+		"/Volumes/RAM Disk/facebook-login-node-express-master/configuration/config.js",
+		"/Users/eliamigliore/Documents/programmazione/node_js/node-express-realworld-example-app-master/routes/auth.js",
+		"/Users/eliamigliore/Documents/programmazione/node_js/node-express-realworld-example-app-master/routes/api/index.js",
+		"/Users/eliamigliore/Documents/programmazione/node_js/node-express-realworld-example-app-master/package.json",
+		"/Volumes/RAM Disk/facebook-login-node-express-master/app.js",
+		"/Users/eliamigliore/Documents/programmazione/node_js/node-express-realworld-example-app-master/app.js",
+		"/Volumes/RAM Disk/url_downloads",
+		"/Users/eliamigliore/Desktop/relazione elettro/relazione_elettro.tex",
+		"/Volumes/RAM Disk/drive-download-20180204T195322Z-001/Termometro_digitale.ino",
+		"/Volumes/RAM Disk/drive-download-20180204T195322Z-001/esercitazione/esercitazione.ino",
+		"/Volumes/RAM Disk/drive-download-20180204T195322Z-001/esercitazione/esercitazione.c",
+		"/Volumes/RAM Disk/prova.bash",
+		"/Volumes/RAM Disk/file1.txt",
+		"/Volumes/RAM Disk/file2.txt",
+		"/Users/eliamigliore/Documents/programmazione/python/fattoriale_quadro.py",
+		"/Users/eliamigliore/Documents/programmazione/python/youtube.py",
+		"/Users/eliamigliore/Documents/programmazione/python/calcolo_simbolico.py",
+		"/Users/eliamigliore/Documents/programmazione/python/web_scraping/get_urls_from_page.py",
+		"/Volumes/RAM Disk/es awk/esame.awk",
+		"/Users/eliamigliore/Documents/programmazione/rel_1.tex",
+		"/Users/eliamigliore/Documents/programmazione/latex-document-example.tex",
+		"/Volumes/RAM Disk/work/unisci_immagini_in_pdf.py",
+		"/Volumes/RAM Disk/images/unisci_immagini_in_pdf.py",
+		"/Users/eliamigliore/Documents/programmazione/riassunto_teoria_segnali.tex",
+		"/Volumes/RAM Disk/test.sh",
+		"/Users/eliamigliore/Desktop/apa/Symbol Tables/ST unsorted list/Item.h",
+		"/Volumes/RAM Disk/fam.txt",
+		"/Volumes/RAM Disk/hab.txt",
+		"/Volumes/RAM Disk/file.txt",
+		"/Users/eliamigliore/Documents/programmazione/python/plot_fft.py",
+		"/Users/eliamigliore/Documents/programmazione/python/fft_mia.py",
+		"/Volumes/RAM Disk/Lab02_Es02/Es02.c",
+		"/Users/eliamigliore/Documents/programmazione/python/plot_point.py",
+		"/Volumes/RAM Disk/geodistance.py",
+		"/Volumes/RAM Disk/geopoint.py",
+		"/Users/eliamigliore/Documents/programmazione/python/geopoint.py",
+		"/Volumes/RAM Disk/sympy_teoria_segnali.py",
+		"/Users/eliamigliore/Documents/programmazione/python/pythonimg.py",
+		"/Volumes/RAM Disk/ilovepdf_extract_pdf_images/pythonimg.py",
+		"/Volumes/RAM Disk/ilovepdf_extract_pdf_images-2/pythonimg.py",
+		"/Volumes/RAM Disk/images/pythonimg.py",
+		"/Volumes/RAM Disk/commento e soluzioni i appello programmazione da 18 punti/sol_a/grafo.h",
+		"/Volumes/RAM Disk/commento e soluzioni i appello programmazione da 18 punti/sol_a/list.h",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/DocBlockr/README.md",
+		"/Users/eliamigliore/Documents/programmazione/c_project/primo_esercizio_sublime.c",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/Terminal/Terminal.sublime-settings",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/User/c-compiler.sublime-build",
+		"/Users/eliamigliore/Documents/programmazione/python/sudoku/sudoku",
+		"/Volumes/RAM Disk/Trees/IBST/IBST.c",
+		"/Users/eliamigliore/Desktop/query-sql.sql",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/User/Python-2.7.sublime-build",
+		"/Volumes/RAM Disk/file_download.py",
+		"/Users/eliamigliore/Documents/programmazione/python/web_scraping/url_downloads",
+		"/Users/eliamigliore/Documents/programmazione/python/web_scraping/download_ebook.py",
+		"/Users/eliamigliore/Documents/programmazione/python/web_scraping/file_downloads",
+		"/Users/eliamigliore/Documents/programmazione/python/cookie.txt",
+		"/Volumes/RAM Disk/progetto arduino/server.py",
+		"/Users/eliamigliore/Documents/xcode_c_project/C_ADT_Util/ADT C/apa_2017/apa_2017/leggimi.txt",
+		"/Users/eliamigliore/Documents/python/ripasso_algoritmi_apa.py",
+		"/Users/eliamigliore/CLionProjects/untitled/main.c",
+		"/Users/eliamigliore/Documents/python/converti_cookie.py",
+		"/Volumes/RAM Disk/codebeautify.xml",
+		"/Volumes/RAM Disk/cookie.json",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/User/Python-3.6.sublime-build",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/User/Python-3.6-on-console.sublime-build",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Installed Packages/Python Breakpoints.sublime-package",
+		"/Users/eliamigliore/Documents/python/primo_esempio.py",
+		"/Users/eliamigliore/Documents/python/radice.py",
+		"/Users/eliamigliore/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/eliamigliore/Desktop/quando_sei_sveglio_leggi.c",
+		"/Users/eliamigliore/Documents/lion_trial_reset.sh",
+		"/Users/eliamigliore/Documents/xcode_c_project/C_ADT_Util/esercizio/esercizio/grafo.txt",
+		"/Volumes/RAM Disk/commento e soluzioni i appello programmazione da 18 punti-2/sol_a/C.c",
+		"/Volumes/RAM Disk/#09 Instagram Photo List/instagram-photo-list/instagram-photo-list.php",
+		"/Users/eliamigliore/Desktop/query-sql",
+		"/Users/eliamigliore/Downloads/functions.php",
+		"/Users/eliamigliore/Desktop/prova.php",
+		"/Users/eliamigliore/Downloads/column_names_2_table.php",
+		"/Users/eliamigliore/Documents/utility php/column_names_2_table.php",
+		"/Users/eliamigliore/Documents/utility php/column_names_2_file.php",
+		"/Users/eliamigliore/Documents/utility php/column_names.php"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"project": "package.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ex",
+				"~/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 198.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

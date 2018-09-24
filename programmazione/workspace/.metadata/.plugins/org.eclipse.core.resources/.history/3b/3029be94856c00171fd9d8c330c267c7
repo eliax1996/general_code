@@ -1,0 +1,15 @@
+
+public class Albero {
+	
+	private Albero sinistro;
+	private Albero destro;
+	
+	public void setSinistro(Albero sinistro){
+		this.sinistro = sinistro;
+	}
+	
+	public void setDestro(Albero destro){
+		this.destro = destro;
+	}
+
+}

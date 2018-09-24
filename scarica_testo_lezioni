@@ -1,0 +1,9 @@
+x = document.querySelector("#lessonList > ul");
+y = x.children;
+for(var e in y){
+	try{
+    console.log(y[e].children[0].text)
+    } catch(err) {
+    
+    }
+}
